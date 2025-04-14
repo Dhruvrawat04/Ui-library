@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreUI Framework Demo</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Core Variables */
+        :root {
+            /* Color System */
+            --primary: #3182ce;
+            --primary-light: #4299e1;
+            --primary-dark: #2c5282;
+            --secondary: #805ad5;
+            --secondary-light: #9f7aea;
+            --secondary-dark: #553c9a;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --danger: #e53e3e;
+            --neutral-100: #f7fafc;
+            --neutral-200: #edf2f7;
+            --neutral-300: #e2e8f0;
+            --neutral-400: #cbd5e0;
+            --neutral-500: #a0aec0;
+            --neutral-600: #718096;
+            --neutral-700: #4a5568;
+            --neutral-800: #2d3748;
+            --neutral-900: #1a202c;
+            
+            /* Typography */
+            --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-serif: Georgia, Cambria, "Times New Roman", Times, serif;
+            --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            
+            /* Spacing Scale (in rems) */
+            --space-1: 0.25rem;
+            --space-2: 0.5rem;
+            --space-3: 0.75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            --space-24: 6rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            /* Breakpoints */
+            --breakpoint-sm: 640px;
+            --breakpoint-md: 768px;
+            --breakpoint-lg: 1024px;
+            --breakpoint-xl: 1280px;
+            
+            /* Border Radius */
+            --radius-sm: 0.125rem;
+            --radius: 0.25rem;
+            --radius-md: 0.375rem;
+            --radius-lg: 0.5rem;
+            --radius-xl: 0.75rem;
+            --radius-full: 9999px;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            color: var(--neutral-800);
+            background-color: var(--neutral-100);
+        }
+
+        /* 12-Column Grid System */
+        .container {
+            width: 100%;
+            padding-right: var(--space-4);
+            padding-left: var(--space-4);
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                max-width: 640px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 768px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 1024px;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .container {
+                max-width: 1280px;
+            }
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -1rem;
+            margin-left: -1rem;
+        }
+
+        [class^="col-"] {
+            position: relative;
+            width: 100%;
+            padding-right: 1rem;
+            padding-left: 1rem;
+        }
+
+        /* Column classes for different screen sizes */
+        .col-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+        .col-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+        .col-3 { flex: 0 0 25%; max-width: 25%; }
+        .col-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+        .col-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+        .col-6 { flex: 0 0 50%; max-width: 50%; }
+        .col-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+        .col-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+        .col-9 { flex: 0 0 75%; max-width: 75%; }
+        .col-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+        .col-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+        .col-12 { flex: 0 0 100%; max-width: 100%; }
+
+        /* Medium screen sizes (md) */
+        @media (min-width: 768px) {
+            .col-md-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+            .col-md-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+            .col-md-3 { flex: 0 0 25%; max-width: 25%; }
+            .col-md-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+            .col-md-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+            .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+            .col-md-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+            .col-md-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+            .col-md-9 { flex: 0 0 75%; max-width: 75%; }
+            .col-md-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+            .col-md-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+            .col-md-12 { flex: 0 0 100%; max-width: 100%; }
+        }
+
+        /* Large screen sizes (lg) */
+        @media (min-width: 1024px) {
+            .col-lg-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+            .col-lg-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+            .col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+            .col-lg-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+            .col-lg-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+            .col-lg-6 { flex: 0 0 50%; max-width: 50%; }
+            .col-lg-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+            .col-lg-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+            .col-lg-9 { flex: 0 0 75%; max-width: 75%; }
+            .col-lg-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+            .col-lg-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+            .col-lg-12 { flex: 0 0 100%; max-width: 100%; }
+        }
+
+        /* Typography Utility Classes */
+        .text-xs { font-size: 0.75rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-base { font-size: 1rem; }
+        .text-lg { font-size: 1.125rem; }
+        .text-xl { font-size: 1.25rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .text-3xl { font-size: 1.875rem; }
+        .text-4xl { font-size: 2.25rem; }
+        .text-5xl { font-size: 3rem; }
+
+        .font-thin { font-weight: 100; }
+        .font-light { font-weight: 300; }
+        .font-normal { font-weight: 400; }
+        .font-medium { font-weight: 500; }
+        .font-semibold { font-weight: 600; }
+        .font-bold { font-weight: 700; }
+        .font-extrabold { font-weight: 800; }
+        .font-black { font-weight: 900; }
+
+        .text-left { text-align: left; }
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .text-justify { text-align: justify; }
+
+        .leading-none { line-height: 1; }
+        .leading-tight { line-height: 1.25; }
+        .leading-snug { line-height: 1.375; }
+        .leading-normal { line-height: 1.5; }
+        .leading-relaxed { line-height: 1.625; }
+        .leading-loose { line-height: 2; }
+
+        /* Spacing Utility Classes */
+        .m-0 { margin: 0; }
+        .m-1 { margin: var(--space-1); }
+        .m-2 { margin: var(--space-2); }
+        .m-3 { margin: var(--space-3); }
+        .m-4 { margin: var(--space-4); }
+        .m-5 { margin: var(--space-5); }
+        .m-6 { margin: var(--space-6); }
+        .m-8 { margin: var(--space-8); }
+
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .mx-0 { margin-left: 0; margin-right: 0; }
+        .mx-1 { margin-left: var(--space-1); margin-right: var(--space-1); }
+        .mx-2 { margin-left: var(--space-2); margin-right: var(--space-2); }
+        .mx-3 { margin-left: var(--space-3); margin-right: var(--space-3); }
+        .mx-4 { margin-left: var(--space-4); margin-right: var(--space-4); }
+
+        .my-0 { margin-top: 0; margin-bottom: 0; }
+        .my-1 { margin-top: var(--space-1); margin-bottom: var(--space-1); }
+        .my-2 { margin-top: var(--space-2); margin-bottom: var(--space-2); }
+        .my-3 { margin-top: var(--space-3); margin-bottom: var(--space-3); }
+        .my-4 { margin-top: var(--space-4); margin-bottom: var(--space-4); }
+        .my-5 { margin-top: var(--space-5); margin-bottom: var(--space-5); }
+
+        .mt-0 { margin-top: 0; }
+        .mt-1 { margin-top: var(--space-1); }
+        .mt-2 { margin-top: var(--space-2); }
+        .mt-3 { margin-top: var(--space-3); }
+        .mt-4 { margin-top: var(--space-4); }
+        .mt-5 { margin-top: var(--space-5); }
+        .mt-6 { margin-top: var(--space-6); }
+        .mt-8 { margin-top: var(--space-8); }
+
+        .mb-0 { margin-bottom: 0; }
+        .mb-1 { margin-bottom: var(--space-1); }
+        .mb-2 { margin-bottom: var(--space-2); }
+        .mb-3 { margin-bottom: var(--space-3); }
+        .mb-4 { margin-bottom: var(--space-4); }
+        .mb-5 { margin-bottom: var(--space-5); }
+        .mb-6 { margin-bottom: var(--space-6); }
+        .mb-8 { margin-bottom: var(--space-8); }
+
+        /* Similar patterns for padding (p-*) */
+        .p-0 { padding: 0; }
+        .p-1 { padding: var(--space-1); }
+        .p-2 { padding: var(--space-2); }
+        .p-3 { padding: var(--space-3); }
+        .p-4 { padding: var(--space-4); }
+        .p-5 { padding: var(--space-5); }
+        .p-6 { padding: var(--space-6); }
+        .p-8 { padding: var(--space-8); }
+
+        /* Flex Utility Classes */
+        .flex { display: flex; }
+        .inline-flex { display: inline-flex; }
+        .flex-row { flex-direction: row; }
+        .flex-row-reverse { flex-direction: row-reverse; }
+        .flex-col { flex-direction: column; }
+        .flex-col-reverse { flex-direction: column-reverse; }
+        .flex-wrap { flex-wrap: wrap; }
+        .flex-nowrap { flex-wrap: nowrap; }
+        .flex-wrap-reverse { flex-wrap: wrap-reverse; }
+        .flex-1 { flex: 1 1 0%; }
+        .flex-auto { flex: 1 1 auto; }
+        .flex-initial { flex: 0 1 auto; }
+        .flex-none { flex: none; }
+
+        .justify-start { justify-content: flex-start; }
+        .justify-end { justify-content: flex-end; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .justify-around { justify-content: space-around; }
+        .justify-evenly { justify-content: space-evenly; }
+
+        .items-start { align-items: flex-start; }
+        .items-end { align-items: flex-end; }
+        .items-center { align-items: center; }
+        .items-baseline { align-items: baseline; }
+        .items-stretch { align-items: stretch; }
+
+        /* Color Utility Classes */
+        .text-primary { color: var(--primary); }
+        .text-secondary { color: var(--secondary); }
+        .text-success { color: var(--success); }
+        .text-warning { color: var(--warning); }
+        .text-danger { color: var(--danger); }
+        .text-light { color: var(--neutral-100); }
+        .text-dark { color: var(--neutral-900); }
+        .text-muted { color: var(--neutral-500); }
+
+        .bg-primary { background-color: var(--primary); }
+        .bg-secondary { background-color: var(--secondary); }
+        .bg-success { background-color: var(--success); }
+        .bg-warning { background-color: var(--warning); }
+        .bg-danger { background-color: var(--danger); }
+        .bg-light { background-color: var(--neutral-100); }
+        .bg-dark { background-color: var(--neutral-900); }
+        .bg-white { background-color: white; }
+        .bg-transparent { background-color: transparent; }
+
+        /* Border Utility Classes */
+        .border { border: 1px solid var(--neutral-300); }
+        .border-0 { border: 0; }
+        .border-top { border-top: 1px solid var(--neutral-300); }
+        .border-right { border-right: 1px solid var(--neutral-300); }
+        .border-bottom { border-bottom: 1px solid var(--neutral-300); }
+        .border-left { border-left: 1px solid var(--neutral-300); }
+
+        .border-primary { border-color: var(--primary); }
+        .border-secondary { border-color: var(--secondary); }
+        .border-success { border-color: var(--success); }
+        .border-warning { border-color: var(--warning); }
+        .border-danger { border-color: var(--danger); }
+        .border-light { border-color: var(--neutral-100); }
+        .border-dark { border-color: var(--neutral-900); }
+
+        /* Border Radius */
+        .rounded-none { border-radius: 0; }
+        .rounded-sm { border-radius: var(--radius-sm); }
+        .rounded { border-radius: var(--radius); }
+        .rounded-md { border-radius: var(--radius-md); }
+        .rounded-lg { border-radius: var(--radius-lg); }
+        .rounded-xl { border-radius: var(--radius-xl); }
+        .rounded-full { border-radius: var(--radius-full); }
+
+        /* Shadow Utility Classes */
+        .shadow-none { box-shadow: none; }
+        .shadow-sm { box-shadow: var(--shadow-sm); }
+        .shadow { box-shadow: var(--shadow); }
+        .shadow-md { box-shadow: var(--shadow-md); }
+        .shadow-lg { box-shadow: var(--shadow-lg); }
+        .shadow-xl { box-shadow: var(--shadow-xl); }
+
+        /* Display Utility Classes */
+        .block { display: block; }
+        .inline-block { display: inline-block; }
+        .inline { display: inline; }
+        .hidden { display: none; }
+
+        @media (min-width: 768px) {
+            .md\:block { display: block; }
+            .md\:inline-block { display: inline-block; }
+            .md\:inline { display: inline; }
+            .md\:hidden { display: none; }
+        }
+
+        @media (min-width: 1024px) {
+            .lg\:block { display: block; }
+            .lg\:inline-block { display: inline-block; }
+            .lg\:inline { display: inline; }
+            .lg\:hidden { display: none; }
+        }
+
+        /* Components */
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            vertical-align: middle;
+            user-select: none;
+            border: 1px solid transparent;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: var(--radius);
+            transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn:focus {
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(49, 130, 206, 0.25);
+        }
+
+        .btn-primary {
+            color: white;
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-secondary {
+            color: white;
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+
+        .btn-success {
+            color: white;
+            background-color: var(--success);
+            border-color: var(--success);
+        }
+
+        .btn-danger {
+            color: white;
+            background-color: var(--danger);
+            border-color: var(--danger);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary);
+            border-color: var(--primary);
+            background-color: transparent;
+        }
+
+        .btn-outline-primary:hover {
+            color: white;
+            background-color: var(--primary);
+        }
+
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: white;
+            background-clip: border-box;
+            border: 1px solid var(--neutral-300);
+            border-radius: var(--radius);
+        }
+
+        .card-header {
+            padding: 1rem;
+            margin-bottom: 0;
+            background-color: var(--neutral-200);
+            border-bottom: 1px solid var(--neutral-300);
+        }
+
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1rem;
+        }
+
+        .card-footer {
+            padding: 1rem;
+            background-color: var(--neutral-200);
+            border-top: 1px solid var(--neutral-300);
+        }
+
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            height: calc(1.5em + 0.75rem + 2px);
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--neutral-800);
+            background-color: white;
+            background-clip: padding-box;
+            border: 1px solid var(--neutral-400);
+            border-radius: var(--radius);
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+        .form-control:focus {
+            color: var(--neutral-800);
+            background-color: white;
+            border-color: var(--primary-light);
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(49, 130, 206, 0.25);
+        }
+
+        /* Alert Component */
+        .alert {
+            position: relative;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: var(--radius);
+        }
+
+        .alert-primary {
+            color: #1a4971;
+            background-color: #d9e8f6;
+            border-color: #b8d7f2;
+        }
+
+        .alert-secondary {
+            color: #4d3c73;
+            background-color: #e9dff6;
+            border-color: #d0bff2;
+        }
+
+        .alert-success {
+            color: #1e5a3d;
+            background-color: #d4edda;
+            border-color: #b1dfbb;
+        }
+
+        .alert-danger {
+            color: #731c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+
+        .alert-warning {
+            color: #7d5a1c;
+            background-color: #fff3cd;
+            border-color: #ffeeba;
+        }
+
+        /* Navigation */
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+            background-color: var(--neutral-800);
+            color: white;
+        }
+
+        .navbar-brand {
+            display: inline-block;
+            padding-top: 0.3125rem;
+            padding-bottom: 0.3125rem;
+            margin-right: 1rem;
+            font-size: 1.25rem;
+            line-height: inherit;
+            white-space: nowrap;
+            color: white;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            flex-direction: column;
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--neutral-100);
+            text-decoration: none;
+        }
+
+        .nav-link:hover, .nav-link:focus {
+            color: var(--primary-light);
+        }
+
+        @media (min-width: 768px) {
+            .navbar-nav {
+                flex-direction: row;
+            }
+            
+            .navbar-expand-md .navbar-nav .nav-link {
+                padding-right: 0.5rem;
+                padding-left: 0.5rem;
+            }
+        }
+
+        /* Dark Mode Styles (as a theme variant) */
+        .dark-mode {
+            background-color: var(--neutral-900);
+            color: var(--neutral-100);
+        }
+
+        .dark-mode .card {
+            background-color: var(--neutral-800);
+            border-color: var(--neutral-700);
+        }
+
+        .dark-mode .card-header, .dark-mode .card-footer {
+            background-color: var(--neutral-800);
+            border-color: var(--neutral-700);
+        }
+
+        .dark-mode .form-control {
+            background-color: var(--neutral-800);
+            border-color: var(--neutral-700);
+            color: var(--neutral-100);
+        }
+
+        .dark-mode .btn-outline-primary {
+            color: var(--primary-light);
+        }
+
+        .dark-mode .border {
+            border-color: var(--neutral-700);
+        }
+
+        /* Theme toggle control */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Additional utility for responsive design */
+        .hidden {
+            display: none !important;
+        }
+
+        @media (min-width: 768px) {
+            .hidden-md {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hidden-lg {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar component -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand">CoreUI</a>
+            <ul class="navbar-nav">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">Components</a></li>
+                <li><a href="#" class="nav-link">Documentation</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero section using our grid system -->
+    <section class="p-5 bg-primary text-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <h1 class="text-4xl font-bold mb-4">CoreUI Framework</h1>
+                    <p class="text-lg mb-4">A lightweight, responsive CSS framework built from scratch to create beautiful user interfaces.</p>
+                    <button class="btn btn-outline-primary bg-transparent text-light border-light mt-3">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Component showcase section -->
+    <section class="py-8">
+        <div class="container">
+            <h2 class="text-3xl font-bold text-center mb-6">Core Components</h2>
+            <div class="row">
+                <!-- Grid System Card -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow">
+                        <div class="card-header">
+                            <h3 class="font-bold">Grid System</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Our 12-column responsive grid system helps you create flexible layouts for any screen size.</p>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="p-2 bg-primary text-light text-center rounded">4</div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="p-2 bg-primary text-light text-center rounded">4</div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="p-2 bg-primary text-light text-center rounded">4</div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="p-2 bg-primary text-light text-center rounded">4</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a href="#" class="text-primary">Documentation</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Typography Card -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow">
+                        <div class="card-header">
+                            <h3 class="font-bold">Typography</h3>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="text-2xl font-bold mb-2">Heading 1</h1>
+                            <h2 class="text-xl font-semibold mb-2">Heading 2</h2>
+                            <h3 class="text-lg font-medium mb-2">Heading 3</h3>
+                            <p class="mb-2">Regular paragraph text with <strong>bold</strong> and <em>italic</em> styles.</p>
+                            <p class="text-sm text-muted">Small muted text for captions</p>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a href="#" class="text-primary">Documentation</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Buttons Card -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow">
+                        <div class="card-header">
+                            <h3 class="font-bold">Buttons</h3>
+                        </div>
+                        <div class="card-body">
+                            <button class="btn btn-primary mb-2 mr-2">Primary</button>
+                            <button class="btn btn-secondary mb-2 mr-2">Secondary</button>
+                            <button class="btn btn-success mb-2 mr-2">Success</button>
+                            <button class="btn btn-danger mb-2 mr-2">Danger</button>
+                            <div class="mt-3">
+                                <button class="btn btn-outline-primary mr-2">Outline</button>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a href="#" class="text-primary">Documentation</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Forms Card -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow">
+                        <div class="card-header">
+                            <h3 class="font-bold">Form Elements</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label">Text Input</label>
+                                <input type="text" class="form-control" placeholder="Enter text">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Select</label>
+                                <select class="form-control">
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control">
+                                    <input type="checkbox"> Check me
+                                </label>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a href="#" class="text-primary">Documentation</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Alerts Card -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow">
+                        <div class="card-header">
+                            <h3 class="font-bold">Alerts</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-primary mb-3">
+                                This is a primary alert
+                            </div>
+                            <div class="alert alert-success mb-3">
+                                This is a success alert
+                            </div>
+                            <div class="alert alert-danger mb-3">
+                                This is a danger alert
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a href="#" class="text-primary">Documentation</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Spacing & Utilities Card -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow">
+                        <div class="card-header">
+                            <h3 class="font-bold">Utilities</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="p-3 mb-3 bg-light border rounded">
+                                <p class="mb-2">Padding (p-3)</p>
+                            </div>
+                            <div class="mb-3 bg-primary text-light p-2 rounded">
+                                <p>Margin bottom (mb-3)</p>
+                            </div>
+                            <div class="flex justify-between items-center p-2 bg-light rounded">
+                                <span>Flex Start</span>
+                                <span>Flex End</span>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a href="#" class="text-primary">Documentation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Color System Section -->
+    <section class="py-8 bg-light">
+        <div class="container">
+            <h2 class="text-3xl font-bold text-center mb-6">Color System</h2>
+            <div class="row">
+                <div class="col-6 col-md-4 col-lg-2 mb-4">
+                    <div class="card shadow h-100">
+                        <div style="height: 100px;" class="bg-primary"></div>
+                        <div class="card-body">
+                            <h4 class="font-semibold">Primary</h4>
+                            <p class="text-sm text-muted">#3182ce</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 mb-4">
+                    <div class="card shadow h-100">
+                        <div style="height: 100px;" class="bg-secondary"></div>
+                        <div class="card-body">
+                            <h4 class="font-semibold">Secondary</h4>
+                            <p class="text-sm text-muted">#805ad5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 mb-4">
+                    <div class="card shadow h-100">
+                        <div style="height: 100px;" class="bg-success"></div>
+                        <div class="card-body">
+                            <h4 class="font-semibold">Success</h4>
+                            <p class="text-sm text-muted">#38a169</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 mb-4">
+                    <div class="card shadow h-100">
+                        <div style="height: 100px;" class="bg-danger"></div>
+                        <div class="card-body">
+                            <h4 class="font-semibold">Danger</h4>
+                            <p class="text-sm text-muted">#e53e3e</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 mb-4">
+                    <div class="card shadow h-100">
+                        <div style="height: 100px;" class="bg-warning"></div>
+                        <div class="card-body">
+                            <h4 class="font-semibold">Warning</h4>
+                            <p class="text-sm text-muted">#d69e2e</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 mb-4">
+                    <div class="card shadow h-100">
+                        <div style="height: 100px;" class="bg-dark"></div>
+                        <div class="card-body">
+                            <h4 class="font-semibold">Dark</h4>
+                            <p class="text-sm text-muted">#1a202c</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action Section -->
+    <section class="py-10 bg-secondary text-light">
+        <div class="container text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p class="mb-6 text-lg">Download CoreUI and start building responsive, user-friendly interfaces today.</p>
+            <button class="btn btn-primary mr-3">Download</button>
+            <button class="btn btn-outline-primary bg-transparent text-light border-light">Documentation</button>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h3 class="text-xl font-bold mb-4">CoreUI</h3>
+                    <p class="mb-4">A lightweight, responsive CSS framework built from scratch.</p>
+                    <p class="text-sm text-muted">© 2025 CoreUI. All rights reserved.</p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            <h4 class="text-lg font-semibold mb-3">Resources</h4>
+                            <ul class="list-none">
+                                <li class="mb-2"><a href="#" class="text-neutral-300">Documentation</a></li>
+                                <li class="mb-2"><a href="#" class="text-neutral-300">Components</a></li>
+                                <li class="mb-2"><a href="#" class="text-neutral-300">Examples</a></li>
+                                <li class="mb-2"><a href="#" class="text-neutral-300">GitHub</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <h4 class="text-lg font-semibold mb-3">About</h4>
+                            <ul class="list-none">
+                                <li class="mb-2"><a href="#" class="text-neutral-300">Team</a></li>
+                                <li class="mb-2"><a href="#" class="text-neutral-300">Contact</a></li>
+                                <li class="mb-2"><a href="#" class="text-neutral-300">License</a></li>
+                                <li class="mb-2"><a href="#" class="text-neutral-300">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Theme toggle button -->
+    <button class="theme-toggle" id="themeToggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+    
+    <script>
+        // Simple theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+        
+        // Responsive navbar example functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add more interactive features here
+        });
+    </script>
+</body>
+</html>
