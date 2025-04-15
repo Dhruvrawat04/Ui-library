@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreStyle Framework Demo</title>
+    <link rel="stylesheet" href="main-css-file.css">
+    <style>
+        .section-divider {
+            height: 2px;
+            background-color: var(--cs-neutral-300);
+            margin: 3rem 0;
+        }
+        
+        .component-example {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid var(--cs-neutral-300);
+            border-radius: var(--radius-md);
+        }
+        
+        .color-swatch {
+            height: 60px;
+            width: 100%;
+            border-radius: var(--radius-md);
+            margin-bottom: 0.5rem;
+        }
+        
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <button id="darkModeToggle" class="btn btn-outline-primary dark-mode-toggle">Toggle Dark Mode</button>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="navbar-brand">CoreStyle</a>
+            <ul class="navbar-nav">
+                <li><a href="#grid" class="nav-link">Grid System</a></li>
+                <li><a href="#typography" class="nav-link">Typography</a></li>
+                <li><a href="#components" class="nav-link">Components</a></li>
+                <li><a href="#utilities" class="nav-link">Utilities</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-primary py-10">
+        <div class="container">
+            <div class="row items-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <h1 class="text-5xl font-bold text-light mb-4">CoreStyle Framework</h1>
+                    <p class="text-xl text-light mb-6">A lightweight, responsive CSS framework built from scratch that empowers developers to craft unique, responsive, and accessible user interfaces.</p>
+                    <a href="#features" class="btn btn-outline-primary bg-light text-primary">Explore Features</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div id="features" class="py-8">
+        <div class="container">
+            <h2 class="text-3xl font-bold text-center mb-6">Key Features</h2>
+            <div class="row">
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <h3 class="text-xl font-semibold mb-2">Responsive Grid</h3>
+                            <p>Build layouts that adapt seamlessly to all screen sizes with our 12-column grid system.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <h3 class="text-xl font-semibold mb-2">Utility Classes</h3>
+                            <p>A comprehensive suite of utility classes for spacing, typography, flex layouts, and alignment.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-4">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <h3 class="text-xl font-semibold mb-2">Dark Mode</h3>
+                            <p>Toggle between light and dark themes with our built-in dark mode support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Grid System Demo -->
+    <section id="grid" class="py-6">
+        <div class="container">
+            <h2 class="text-3xl font-bold mb-4">Grid System</h2>
+            <p class="mb-4">CoreStyle uses a responsive 12-column grid system that adapts to all screen sizes.</p>
+            
+            <div class="component-example">
+                <div class="row">
+                    <div class="col-12"><div class="bg-primary text-light p-2 text-center mb-2">col-12</div></div>
+                </div>
+                <div class="row">
+                    <div class="col-6"><div class="bg-primary text-light p-2 text-center mb-2">col-6</div></div>
+                    <div class="col-6"><div class="bg-primary text-light p-2 text-center mb-2">col-6</div></div>
+                </div>
+                <div class="row">
+                    <div class="col-4"><div class="bg-primary text-light p-2 text-center mb-2">col-4</div></div>
+                    <div class="col-4"><div class="bg-primary text-light p-2 text-center mb-2">col-4</div></div>
+                    <div class="col-4"><div class="bg-primary text-light p-2 text-center mb-2">col-4</div></div>
+                </div>
+                <div class="row">
+                    <div class="col-3"><div class="bg-primary text-light p-2 text-center mb-2">col-3</div></div>
+                    <div class="col-3"><div class="bg-primary text-light p-2 text-center mb-2">col-3</div></div>
+                    <div class="col-3"><div class="bg-primary text-light p-2 text-center mb-2">col-3</div></div>
+                    <div class="col-3"><div class="bg-primary text-light p-2 text-center mb-2">col-3</div></div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-3"><div class="bg-secondary text-light p-2 text-center mb-2">Responsive columns</div></div>
+                    <div class="col-12 col-md-6 col-lg-3"><div class="bg-secondary text-light p-2 text-center mb-2">Responsive columns</div></div>
+                    <div class="col-12 col-md-6 col-lg-3"><div class="bg-secondary text-light p-2 text-center mb-2">Responsive columns</div></div>
+                    <div class="col-12 col-md-6 col-lg-3"><div class="bg-secondary text-light p-2 text-center mb-2">Responsive columns</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Typography Section -->
+    <section id="typography" class="py-6">
+        <div class="container">
+            <h2 class="text-3xl font-bold mb-4">Typography</h2>
+            <div class="component-example">
+                <h1 class="text-5xl font-bold mb-2">Heading 1 (text-5xl)</h1>
+                <h2 class="text-4xl font-semibold mb-2">Heading 2 (text-4xl)</h2>
+                <h3 class="text-3xl font-medium mb-2">Heading 3 (text-3xl)</h3>
+                <h4 class="text-2xl mb-2">Heading 4 (text-2xl)</h4>
+                <h5 class="text-xl mb-2">Heading 5 (text-xl)</h5>
+                <h6 class="text-lg mb-4">Heading 6 (text-lg)</h6>
+                
+                <p class="text-base mb-2">Base paragraph text (text-base). CoreStyle provides a clean typographic scale with consistent spacing.</p>
+                <p class="text-sm mb-2">Small text (text-sm) for secondary information.</p>
+                <p class="text-xs mb-4">Extra small text (text-xs) for fine print or captions.</p>
+                
+                <div class="mb-2"><span class="font-thin">Font weight: thin</span></div>
+                <div class="mb-2"><span class="font-light">Font weight: light</span></div>
+                <div class="mb-2"><span class="font-normal">Font weight: normal</span></div>
+                <div class="mb-2"><span class="font-medium">Font weight: medium</span></div>
+                <div class="mb-2"><span class="font-semibold">Font weight: semibold</span></div>
+                <div class="mb-4"><span class="font-bold">Font weight: bold</span></div>
+                
+                <div class="mb-2"><span class="text-primary">Primary color text</span></div>
+                <div class="mb-2"><span class="text-secondary">Secondary color text</span></div>
+                <div class="mb-2"><span class="text-success">Success color text</span></div>
+                <div class="mb-2"><span class="text-warning">Warning color text</span></div>
+                <div class="mb-2"><span class="text-danger">Danger color text</span></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Color System -->
+    <section class="py-6">
+        <div class="container">
+            <h2 class="text-3xl font-bold mb-4">Color System</h2>
+            <p class="mb-4">CoreStyle includes a carefully crafted color palette with semantic color mappings.</p>
+            
+            <div class="row">
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="color-swatch bg-primary"></div>
+                    <p class="font-medium">Primary</p>
+                    <p class="text-sm text-muted">var(--color-primary)</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="color-swatch bg-secondary"></div>
+                    <p class="font-medium">Secondary</p>
+                    <p class="text-sm text-muted">var(--color-secondary)</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="color-swatch bg-success"></div>
+                    <p class="font-medium">Success</p>
+                    <p class="text-sm text-muted">var(--color-success)</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="color-swatch bg-warning"></div>
+                    <p class="font-medium">Warning</p>
+                    <p class="text-sm text-muted">var(--color-warning)</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="color-swatch bg-danger"></div>
+                    <p class="font-medium">Danger</p>
+                    <p class="text-sm text-muted">var(--color-danger)</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="color-swatch bg-light"></div>
+                    <p class="font-medium">Light</p>
+                    <p class="text-sm text-muted">var(--color-light)</p>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                    <div class="color-swatch bg-dark"></div>
+                    <p class="font-medium text-light">Dark</p>
+                    <p class="text-sm text-light">var(--color-dark)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Components Section -->
+    <section id="components" class="py-6">
+        <div class="container">
+            <h2 class="text-3xl font-bold mb-4">Components</h2>
+            
+            <!-- Buttons -->
+            <h3 class="text-2xl font-semibold mb-3">Buttons</h3>
+            <div class="component-example">
+                <button class="btn btn-primary mr-2 mb-2">Primary Button</button>
+                <button class="btn btn-secondary mr-2 mb-2">Secondary Button</button>
+                <button class="btn btn-success mr-2 mb-2">Success Button</button>
+                <button class="btn btn-danger mr-2 mb-2">Danger Button</button>
+                <br>
+                <button class="btn btn-outline-primary mr-2">Outline Primary</button>
+                <button class="btn btn-outline-secondary mr-2">Outline Secondary</button>
+            </div>
+            
+            <!-- Cards -->
+            <h3 class="text-2xl font-semibold mb-3 mt-6">Cards</h3>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow">
+                        <div class="card-header">
+                            <h4 class="font-semibold">Card Title</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>This is a basic card component with header, body, and footer sections.</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary">Action</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <h4 class="font-semibold mb-2">Simple Card</h4>
+                            <p>A simpler card with just a body section.</p>
+                            <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Alerts -->
+            <h3 class="text-2xl font-semibold mb-3 mt-6">Alerts</h3>
+            <div class="component-example">
+                <div class="alert alert-primary mb-2">This is a primary alert.</div>
+                <div class="alert alert-secondary mb-2">This is a secondary alert.</div>
+                <div class="alert alert-success mb-2">This is a success alert.</div>
+                <div class="alert alert-warning mb-2">This is a warning alert.</div>
+                <div class="alert alert-danger mb-2">This is a danger alert.</div>
+            </div>
+            
+            <!-- Forms -->
+            <h3 class="text-2xl font-semibold mb-3 mt-6">Forms</h3>
+            <div class="component-example">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <form>
+                            <div class="form-group">
+                                <label for="nameInput" class="form-label">Name</label>
+                                <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="emailInput" class="form-label">Email</label>
+                                <input type="email" id="emailInput" class="form-control" placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="messageInput" class="form-label">Message</label>
+                                <textarea id="messageInput" class="form-control" rows="3" placeholder="Your message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Utilities Section -->
+    <section id="utilities" class="py-6">
+        <div class="container">
+            <h2 class="text-3xl font-bold mb-4">Utility Classes</h2>
+            
+            <!-- Spacing Utilities -->
+            <h3 class="text-2xl font-semibold mb-3">Spacing Utilities</h3>
+            <div class="component-example">
+                <div class="bg-primary p-1 text-light text-center mb-2">p-1 (Padding: 0.25rem)</div>
+                <div class="bg-primary p-2 text-light text-center mb-2">p-2 (Padding: 0.5rem)</div>
+                <div class="bg-primary p-3 text-light text-center mb-2">p-3 (Padding: 0.75rem)</div>
+                <div class="bg-primary p-4 text-light text-center mb-2">p-4 (Padding: 1rem)</div>
+                
+                <div class="mt-4">
+                    <div class="bg-light p-3 border mb-1">Base element</div>
+                    <div class="bg-light p-3 border mt-2">mt-2 (Margin Top: 0.5rem)</div>
+                    <div class="bg-light p-3 border mt-4">mt-4 (Margin Top: 1rem)</div>
+                </div>
+            </div>
+            
+            <!-- Flex Utilities -->
+            <h3 class="text-2xl font-semibold mb-3 mt-6">Flex Utilities</h3>
+            <div class="component-example">
+                <div class="mb-4">
+                    <p class="mb-2">Flex with justify-between:</p>
+                    <div class="flex justify-between p-2 bg-light border">
+                        <div class="bg-primary text-light p-2">Item 1</div>
+                        <div class="bg-primary text-light p-2">Item 2</div>
+                        <div class="bg-primary text-light p-2">Item 3</div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <p class="mb-2">Flex with justify-center and items-center:</p>
+                    <div class="flex justify-center items-center p-4 bg-light border" style="height: 100px;">
+                        <div class="bg-secondary text-light p-2">Centered Item</div>
+                    </div>
+                </div>
+                
+                <div>
+                    <p class="mb-2">Flex Column:</p>
+                    <div class="flex flex-col p-2 bg-light border">
+                        <div class="bg-primary text-light p-2 mb-2">Item 1</div>
+                        <div class="bg-primary text-light p-2 mb-2">Item 2</div>
+                        <div class="bg-primary text-light p-2">Item 3</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Display Utilities -->
+            <h3 class="text-2xl font-semibold mb-3 mt-6">Display & Border Utilities</h3>
+            <div class="component-example">
+                <div class="flex flex-wrap">
+                    <div class="p-3 m-2 border">Standard border</div>
+                    <div class="p-3 m-2 border-primary border">Primary border</div>
+                    <div class="p-3 m-2 border rounded">Rounded border</div>
+                    <div class="p-3 m-2 border rounded-lg">Large rounded border</div>
+                    <div class="p-3 m-2 border rounded-full">Fully rounded border</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-6 mt-8">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h3 class="text-2xl mb-4">CoreStyle Framework</h3>
+                    <p class="mb-4">A lightweight, responsive CSS framework built from scratch that empowers developers to craft unique, responsive, and accessible user interfaces.</p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <h4 class="text-xl mb-3">Quick Links</h4>
+                    <ul>
+                        <li class="mb-2"><a href="#grid" class="text-light">Grid System</a></li>
+                        <li class="mb-2"><a href="#typography" class="text-light">Typography</a></li>
+                        <li class="mb-2"><a href="#components" class="text-light">Components</a></li>
+                        <li class="mb-2"><a href="#utilities" class="text-light">Utilities</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-top border-secondary mt-4 pt-4 text-center">
+                <p>© 2025 CoreStyle Framework | Created from scratch for the UI Library Project</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle Functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            // Update button text
+            if (document.body.classList.contains('dark-mode')) {
+                darkModeToggle.textContent = 'Switch to Light Mode';
+            } else {
+                darkModeToggle.textContent = 'Switch to Dark Mode';
+            }
+        });
+    </script>
+</body>
+</html>
