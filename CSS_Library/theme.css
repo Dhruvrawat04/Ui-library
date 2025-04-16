@@ -1,0 +1,181 @@
+.text-primary {
+  color: var(--primary);
+}
+.text-secondary {
+  color: var(--secondary);
+}
+.text-success {
+  color: var(--success);
+}
+.text-warning {
+  color: var(--warning);
+}
+.text-danger {
+  color: var(--danger);
+}
+.text-light {
+  color: var(--neutral-100);
+}
+.text-dark {
+  color: var(--neutral-900);
+}
+.text-muted {
+  color: var(--neutral-500);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+.bg-secondary {
+  background-color: var(--secondary);
+}
+.bg-success {
+  background-color: var(--success);
+}
+.bg-warning {
+  background-color: var(--warning);
+}
+.bg-danger {
+  background-color: var(--danger);
+}
+.bg-light {
+  background-color: var(--neutral-100);
+}
+.bg-dark {
+  background-color: var(--neutral-900);
+}
+.bg-white {
+  background-color: white;
+}
+.bg-transparent {
+  background-color: transparent;
+}
+
+/* Border Utility Classes */
+.border {
+  border: 1px solid var(--neutral-300);
+}
+.border-0 {
+  border: 0;
+}
+.border-top {
+  border-top: 1px solid var(--neutral-300);
+}
+.border-right {
+  border-right: 1px solid var(--neutral-300);
+}
+.border-bottom {
+  border-bottom: 1px solid var(--neutral-300);
+}
+.border-left {
+  border-left: 1px solid var(--neutral-300);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+.border-secondary {
+  border-color: var(--secondary);
+}
+.border-success {
+  border-color: var(--success);
+}
+.border-warning {
+  border-color: var(--warning);
+}
+.border-danger {
+  border-color: var(--danger);
+}
+.border-light {
+  border-color: var(--neutral-100);
+}
+.border-dark {
+  border-color: var(--neutral-900);
+}
+
+/* Border Radius */
+.rounded-none {
+  border-radius: 0;
+}
+.rounded-sm {
+  border-radius: var(--radius-sm);
+}
+.rounded {
+  border-radius: var(--radius);
+}
+.rounded-md {
+  border-radius: var(--radius-md);
+}
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+.rounded-xl {
+  border-radius: var(--radius-xl);
+}
+.rounded-full {
+  border-radius: var(--radius-full);
+}
+
+/* Shadow Utility Classes */
+.shadow-none {
+  box-shadow: none;
+}
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+.shadow {
+  box-shadow: var(--shadow);
+}
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+.shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+
+/* Display Utility Classes */
+.block {
+  display: block;
+}
+.inline-block {
+  display: inline-block;
+}
+.inline {
+  display: inline;
+}
+.hidden {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .md\:block {
+    display: block;
+  }
+  .md\:inline-block {
+    display: inline-block;
+  }
+  .md\:inline {
+    display: inline;
+  }
+  .md\:hidden {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:block {
+    display: block;
+  }
+  .lg\:inline-block {
+    display: inline-block;
+  }
+  .lg\:inline {
+    display: inline;
+  }
+  .lg\:hidden {
+    display: none;
+  }
+}

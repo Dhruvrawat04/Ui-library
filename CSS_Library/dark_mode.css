@@ -1,0 +1,48 @@
+.dark-mode {
+  background-color: var(--neutral-900);
+  color: var(--neutral-100);
+}
+
+.dark-mode .card {
+  background-color: var(--neutral-800);
+  border-color: var(--neutral-700);
+}
+
+.dark-mode .card-header,
+.dark-mode .card-footer {
+  background-color: var(--neutral-800);
+  border-color: var(--neutral-700);
+}
+
+.dark-mode .form-control {
+  background-color: var(--neutral-800);
+  border-color: var(--neutral-700);
+  color: var(--neutral-100);
+}
+
+.dark-mode .btn-outline-primary {
+  color: var(--primary-light);
+}
+
+.dark-mode .border {
+  border-color: var(--neutral-700);
+}
+
+/* Theme toggle control */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  width: 50px;
+  height: 50px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
