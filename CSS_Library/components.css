@@ -100,3 +100,13 @@
   background-color: #fff3cd;
   border-color: #ffeeba;
 }
+
+hr {
+  width: 90%;
+  margin: var(--space-6) auto;
+  border: none;
+  height: 2px;
+  background-color: var(--neutral-400);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+}

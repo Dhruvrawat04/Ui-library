@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="Main Stylesheet" href="CSS_Library/style.css">
-    <link rel="Colors Stylesheet" href="CSS_Library/colors.css">
-    <link rel="Theme Stylesheet" href="CSS_Library/theme.css">
-    <link rel="Dark Mode Stylesheet" href="CSS_Library/dark_mode.css">
-    <link rel="Navigation Bar Stylesheet" href="CSS_Library/navbar.css">
-    <link rel="Flex Stylesheet" href="CSS_Library/flex.css">
-    <link rel="Container Stylesheet" href="CSS_Library/container.css">
-    <link rel="Text Stylesheet" href="CSS_Library/text.css">
-    <link rel="Components Stylesheet" href="CSS_Library/components.css">
-    <link rel="Button Stylesheet" href="CSS_Library/button.css">
+    <link rel="stylesheet" href="CSS_Library/style.css">
+    <link rel="stylesheet" href="CSS_Library/colors.css">
+    <link rel="stylesheet" href="CSS_Library/theme.css">
+    <link rel="stylesheet" href="CSS_Library/navbar.css">
+    <link rel="stylesheet" href="CSS_Library/flex.css">
+    <link rel="stylesheet" href="CSS_Library/container.css">
+    <link rel="stylesheet" href="CSS_Library/text.css">
+    <link rel="stylesheet" href="CSS_Library/button.css">
+    <link rel="stylesheet" href="CSS_Library/components.css">
+    <link rel="stylesheet" href="CSS_Library/dark_mode.css">
     <script src="script.js" defer></script>
     <title>CoreUI Framework Demo</title>
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="navbar-brand">CoreUI</a>
+            <a href="index.html" class="navbar-brand font-bold">Core<span class="text-primary">UI</span></a>
             <ul class="navbar-nav">
-                <li><a href="#" class="nav-link">Home</a></li>
-                <li><a href="#" class="nav-link">Components</a></li>
-                <li><a href="#" class="nav-link">Documentation</a></li>
-                <li><a href="#" class="nav-link">About</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#components" class="nav-link">Components</a></li>
+                <li><a href="#colors" class="nav-link">Colors</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -34,22 +34,59 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-8 col-lg-6">
-                    <h1 class="text-4xl font-bold mb-4">CoreUI Framework</h1>
+                    <h1 class="text-5xl font-bold mb-4 text-light">Build Faster with <span class="text-light">Core<span class="text-warning">UI</span></span></h1>
                     <p class="text-lg mb-4">A lightweight, responsive CSS framework built from scratch to create beautiful user interfaces.</p>
-                    <button class="btn btn-outline-primary bg-transparent text-light border-light mt-3">Get Started</button>
+                    <div class="flex">
+                        <button class="btn btn-warning mr-3 font-semibold" id="downloadCSS">Download</button>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Main Features Section -->
+    <section class="py-8 bg-light mt-8" id="features">
+        <div class="container">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold">Why Choose CoreUI?</h2>
+                <p class="text-lg text-neutral-600 mt-2 mx-auto" style="max-width: 700px;">Our lightweight framework
+                    gives you all the tools you need without the bloat.</p>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-4 mb-5">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">📱</div>
+                        <h3 class="text-xl font-bold mb-2">Fully Responsive</h3>
+                        <p class="text-neutral-600">Your designs will look perfect on any device with our fluid grid
+                            system.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-5">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="text-xl font-bold mb-2">Lightning Fast</h3>
+                        <p class="text-neutral-600">Minimal file size means your pages load quickly and efficiently.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 mb-5">
+                    <div class="text-center p-4">
+                        <div class="feature-icon">🎨</div>
+                        <h3 class="text-xl font-bold mb-2">Customizable</h3>
+                        <p class="text-neutral-600">Easy to modify variables and components to match your brand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> <hr>
+    
     <!-- Component showcase section -->
-    <section class="py-8">
+    <section class="py-8 mt-8" id="components">
         <div class="container">
             <h2 class="text-3xl font-bold text-center mb-6">Core Components</h2>
             <div class="row">
                 <!-- Grid System Card -->
                 <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <div class="card shadow" data-feature-id="grid-system">
+                    <div class="card shadow">
                         <div class="card-header">
                             <h3 class="font-bold">Grid System</h3>
                         </div>
@@ -65,13 +102,18 @@
                                 <div class="col-4">
                                     <div class="p-2 bg-primary text-light text-center rounded">4</div>
                                 </div>
-                                <div class="col-4">
-                                    <div class="p-2 bg-primary text-light text-center rounded">4</div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-6">
+                                    <div class="p-2 bg-secondary text-light text-center rounded">6</div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="p-2 bg-secondary text-light text-center rounded">6</div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer text-right">
-                            <a href="#" class="text-primary">Documentation</a>
+                            <a href="#" class="text-primary">Try Now</a>
                         </div>
                     </div>
                 </div>
@@ -86,11 +128,11 @@
                             <h1 class="text-2xl font-bold mb-2">Heading 1</h1>
                             <h2 class="text-xl font-semibold mb-2">Heading 2</h2>
                             <h3 class="text-lg font-medium mb-2">Heading 3</h3>
-                            <p class="mb-2">Regular paragraph text with <strong>bold</strong> and <em>italic</em> styles.</p>
+                            <p class="mb-2">Regular text with <strong>bold</strong> and <em>italic</em> styles.</p>
                             <p class="text-sm text-muted">Small muted text for captions</p>
                         </div>
                         <div class="card-footer text-right">
-                            <a href="#" class="text-primary">Documentation</a>
+                            <a href="#" class="text-primary">Try Now</a>
                         </div>
                     </div>
                 </div>
@@ -102,16 +144,15 @@
                             <h3 class="font-bold">Buttons</h3>
                         </div>
                         <div class="card-body">
+                            <p class="mb-5">Our varied range of buttons includes multiple styles, colors, and sizes.</p>
                             <button class="btn btn-primary mb-2 mr-2">Primary</button>
                             <button class="btn btn-secondary mb-2 mr-2">Secondary</button>
                             <button class="btn btn-success mb-2 mr-2">Success</button>
                             <button class="btn btn-danger mb-2 mr-2">Danger</button>
-                            <div class="mt-3">
-                                <button class="btn btn-outline-primary mr-2">Outline</button>
-                            </div>
+                            <button class="btn btn-outline-primary mb-2 mr-2">Outline</button>
                         </div>
                         <div class="card-footer text-right">
-                            <a href="#" class="text-primary">Documentation</a>
+                            <a href="#" class="text-primary">Try Now</a>
                         </div>
                     </div>
                 </div>
@@ -142,7 +183,7 @@
                             </div>
                         </div>
                         <div class="card-footer text-right">
-                            <a href="#" class="text-primary">Documentation</a>
+                            <a href="#" class="text-primary">Try Now</a>
                         </div>
                     </div>
                 </div>
@@ -154,18 +195,18 @@
                             <h3 class="font-bold">Alerts</h3>
                         </div>
                         <div class="card-body">
-                            <div class="alert alert-primary mb-3">
-                                This is a primary alert
+                            <div class="alert alert-primary mb-3 mt-1">
+                                This is a primary alert message.
                             </div>
                             <div class="alert alert-success mb-3">
-                                This is a success alert
+                                Your changes have been saved successfully!
                             </div>
-                            <div class="alert alert-danger mb-3">
-                                This is a danger alert
+                            <div class="alert alert-danger">
+                                Error! Please check submission.
                             </div>
                         </div>
                         <div class="card-footer text-right">
-                            <a href="#" class="text-primary">Documentation</a>
+                            <a href="#" class="text-primary">Try Now</a>
                         </div>
                     </div>
                 </div>
@@ -181,7 +222,10 @@
                                 <p class="mb-2">Padding (p-3)</p>
                             </div>
                             <div class="mb-3 bg-primary text-light p-2 rounded">
-                                <p>Margin bottom (mb-3)</p>
+                                <p>Margin (mb-3, mt-3)</p>
+                            </div>
+                            <div class="p-3 mb-3 bg-light border rounded">
+                                <p>Navbar with list</p>
                             </div>
                             <div class="flex justify-between items-center p-2 bg-light rounded">
                                 <span>Flex Start</span>
@@ -189,13 +233,13 @@
                             </div>
                         </div>
                         <div class="card-footer text-right">
-                            <a href="#" class="text-primary">Documentation</a>
+                            <a href="#" class="text-primary">Try Now</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section><hr>
     
     <!-- Color System Section -->
     <section class="py-8 bg-light">
@@ -261,42 +305,54 @@
     </section>
     
     <!-- Call to Action Section -->
-    <section class="py-10 bg-secondary text-light">
-        <div class="container text-center">
-            <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+    <section class="py-10 bg-secondary text-light" id="download">
+        <div class="container text-center mt-6" id="colors">
+            <h2 class="text-3xl font-bold mb-4">Ready to Build Something?</h2>
             <p class="mb-6 text-lg">Download CoreUI and start building responsive, user-friendly interfaces today.</p>
-            <button class="btn btn-primary mr-3">Download</button>
-            <button class="btn btn-outline-primary bg-transparent text-light border-light">Documentation</button>
+            <button class="btn btn-primary mb-6" id="downloadCSS">Download</button>
+            <button class="btn btn-primary bg-dark text-light border-light mb-6">Documentation</button>
         </div>
     </section>
     
     <!-- Footer -->
-    <footer class="bg-dark text-light py-6">
+    <footer class="bg-dark text-light py-8" id="contact">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-6">
-                    <h3 class="text-xl font-bold mb-4">CoreUI</h3>
-                    <p class="mb-4">A lightweight, responsive CSS framework built from scratch.</p>
+                <div class="col-12 col-md-4 mb-6 mt-6">
+                    <h3 class="text-2xl font-bold mb-4">Core<span class="text-primary">UI</span></h3>
+                    <p class="mb-4">A lightweight, responsive CSS framework built with modern web development in mind.
+                    </p>
                     <p class="text-sm text-muted">© 2025 CoreUI. All rights reserved.</p>
                 </div>
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-8 mt-6">
                     <div class="row">
-                        <div class="col-6">
-                            <h4 class="text-lg font-semibold mb-3">Resources</h4>
-                            <ul class="list-none">
-                                <li class="mb-2"><a href="#" class="text-neutral-300">Documentation</a></li>
-                                <li class="mb-2"><a href="#" class="text-neutral-300">Components</a></li>
-                                <li class="mb-2"><a href="#" class="text-neutral-300">Examples</a></li>
-                                <li class="mb-2"><a href="#" class="text-neutral-300">GitHub</a></li>
+                        <div class="col-6 col-md-4 mb-4">
+                            <h4 class="text-lg font-semibold mb-3">Developers</h4>
+                            <ul>
+                                <li class="mb-2"><a href="https://www.linkedin.com/in/deepak-singh-burathoki-46337a317/" class="text-neutral-300 hover:text-white">Deepak Singh</a></li>
+                                <li class="mb-2"><a href="https://www.linkedin.com/in/vineet-pandey-5807692b4/" class="text-neutral-300 hover:text-white">Vineet Pandey</a></li>
+                                <li class="mb-2"><a href="https://www.linkedin.com/in/khajanbhatt/" class="text-neutral-300 hover:text-white">Khajan Bhatt</a></li>
+                                <li class="mb-2"><a href="https://www.linkedin.com/in/dhruv-rawat-1516a92b5/" class="text-neutral-300 hover:text-white">Dhruv Rawat</a></li>
                             </ul>
                         </div>
-                        <div class="col-6">
-                            <h4 class="text-lg font-semibold mb-3">About</h4>
-                            <ul class="list-none">
-                                <li class="mb-2"><a href="#" class="text-neutral-300">Team</a></li>
-                                <li class="mb-2"><a href="#" class="text-neutral-300">Contact</a></li>
-                                <li class="mb-2"><a href="#" class="text-neutral-300">License</a></li>
-                                <li class="mb-2"><a href="#" class="text-neutral-300">Privacy</a></li>
+                        <div class="col-6 col-md-4 mb-4">
+                            <h4 class="text-lg font-semibold mb-3">Community</h4>
+                            <ul>
+                                <li class="mb-2"><a href="#" class="text-neutral-300 hover:text-white">Forums</a></li>
+                                <li class="mb-2"><a href="#" class="text-neutral-300 hover:text-white">Discord</a></li>
+                                <li class="mb-2"><a href="#" class="text-neutral-300 hover:text-white">Twitter</a></li>
+                                <li class="mb-2"><a href="#" class="text-neutral-300 hover:text-white">Contributors</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-md-4 mb-4">
+                            <h4 class="text-lg font-semibold mb-3">Contact</h4>
+                            <ul>
+                                <li class="mb-2"><a href="#" class="text-neutral-300 hover:text-white">Support</a></li>
+                                <li class="mb-2"><a href="#" class="text-neutral-300 hover:text-white">Sales</a></li>
+                                <li class="mb-2"><a href="#" class="text-neutral-300 hover:text-white">Sponsorship</a>
+                                </li>
+                                <li class="mb-2"><a href="#" class="text-neutral-300 hover:text-white">Media</a></li>
                             </ul>
                         </div>
                     </div>
@@ -311,18 +367,5 @@
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
     </button>
-    
-    <script>
-        // Simple theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
-        
-        // Responsive navbar example functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            // Add more interactive features here
-        });
-    </script>
 </body>
 </html>

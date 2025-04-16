@@ -18,12 +18,17 @@ function updatePreview() {
   output.open();
   output.write(`
        <html>
-         <head>
-           <link rel="stylesheet" href="CSS_Library/colors.css">
-           <link rel="stylesheet" href="CSS_Library/theme.css">
-           <link rel="stylesheet" href="CSS_Library/components.css">
-           <link rel="stylesheet" href="CSS_Library/text.css">
-           <!-- Add other CSS files as needed -->
+        <head>
+            <link rel="stylesheet" href="CSS_Library/style.css">
+            <link rel="stylesheet" href="CSS_Library/colors.css">
+            <link rel="stylesheet" href="CSS_Library/theme.css">
+            <link rel="stylesheet" href="CSS_Library/navbar.css">
+            <link rel="stylesheet" href="CSS_Library/flex.css">
+            <link rel="stylesheet" href="CSS_Library/container.css">
+            <link rel="stylesheet" href="CSS_Library/text.css">
+            <link rel="stylesheet" href="CSS_Library/button.css">
+            <link rel="stylesheet" href="CSS_Library/components.css">
+            <link rel="stylesheet" href="CSS_Library/dark_mode.css">
          </head>
          <body>
            ${code}
