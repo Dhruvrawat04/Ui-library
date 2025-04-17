@@ -40,7 +40,6 @@ const featureCodeMap = {
   <div class="mt-3">
     <button class="btn btn-outline-primary">Outline</button>
   </div>`,
-  `,
   
 
   "forms": `
