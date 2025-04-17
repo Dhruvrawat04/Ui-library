@@ -24,8 +24,11 @@ const featureCodeMap = {
   
 
   "typography": `
-  <h1 class="text-4xl font-bold color-primary">Typography Example</h1>
-  <p class="text-base color-gray">This is a paragraph styled using the CSS library.</p>`,
+  <h1 class="text-2xl font-bold mb-2">Heading 1</h1>
+  <h2 class="text-xl font-semibold mb-2">Heading 2</h2>
+  <h3 class="text-lg font-medium mb-2">Heading 3</h3>
+  <p class="mb-2">Regular paragraph text with <strong>bold</strong> and <em>italic</em> styles.</p>
+  <p class="text-sm text-muted">Small muted text for captions</p>`,
    
 
   "buttons": `
@@ -38,8 +41,34 @@ const featureCodeMap = {
   
 
   "forms": `
-  <h1 class="text-4xl font-bold color-primary">Typography Example</h1>
-  <p class="text-base color-gray">This is a paragraph styled using the CSS library.</p>`,
+   <div class="form-group">
+    <label class="form-label">Username</label>
+    <input type="text" class="form-control" placeholder="Enter username">
+  </div>
+  <div class="form-group">
+    <label class="form-label">Select Option</label>
+    <select class="form-control">
+      <option>Option 1</option>
+      <option>Option 2</option>
+      <option>Option 3</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>
+      <input type="checkbox"> Remember me
+    </label>
+  </div>`,
+
+  "alerts": `
+  <div class="alert alert-primary mb-3">
+    This is a primary alert message.
+  </div>
+  <div class="alert alert-success mb-3">
+    Your changes have been saved successfully!
+  </div>
+  <div class="alert alert-danger">
+    Error! Please check your submission.
+  </div>`,
   
   
   "alerts": `
@@ -66,8 +95,16 @@ const featureCodeMap = {
 
   
   "Spacing and Utilities": `spa and uti
-  <h1 class="text-4xl font-bold color-primary">Typography Example</h1>
-  <p class="text-base color-gray">This is a paragraph styled using the CSS library.</p>`
+   <div class="p-3 mb-3 bg-light border rounded">
+    <p class="mb-2">Padding (p-3)</p>
+  </div>
+  <div class="mb-3 bg-primary text-light p-2 rounded">
+    <p>Margin bottom (mb-3)</p>
+  </div>
+  <div class="flex justify-between items-center p-2 bg-light rounded">
+    <span>Flex Start</span>
+    <span>Flex End</span>
+  </div>`
 };
 
 // Feature link click handler
