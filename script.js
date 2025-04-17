@@ -84,7 +84,7 @@ const featureCodeMap = {
   `,
 
   
-  "Spacing and Utilities": `
+  "spacing and utilities": `
    <div class="p-3 mb-3 bg-light border rounded">
     <p class="mb-2">Padding (p-3)</p>
   </div>
