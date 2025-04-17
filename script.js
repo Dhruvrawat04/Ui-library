@@ -58,18 +58,6 @@ const featureCodeMap = {
       <input type="checkbox"> Remember me
     </label>
   </div>`,
-
-  "alerts": `
-  <div class="alert alert-primary mb-3">
-    This is a primary alert message.
-  </div>
-  <div class="alert alert-success mb-3">
-    Your changes have been saved successfully!
-  </div>
-  <div class="alert alert-danger">
-    Error! Please check your submission.
-  </div>`,
-  
   
   "alerts": `
   <div class="alert alert-primary">
