@@ -37,6 +37,9 @@ const featureCodeMap = {
   <button class="btn btn-secondary">Secondary Button</button>
   <button class="btn btn-danger">Danger Button</button>
   <button class="btn btn-success">Success Button</button>
+  <div class="mt-3">
+    <button class="btn btn-outline-primary">Outline</button>
+  </div>`,
   `,
   
 
@@ -82,7 +85,7 @@ const featureCodeMap = {
   `,
 
   
-  "Spacing and Utilities": `spa and uti
+  "Spacing and Utilities": `
    <div class="p-3 mb-3 bg-light border rounded">
     <p class="mb-2">Padding (p-3)</p>
   </div>
